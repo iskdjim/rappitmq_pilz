@@ -1,0 +1,50 @@
+{
+  "messages":  [ "Message ONE", "Message TWO", "Message THREE"],
+  "pipes": [
+    {
+      "exchange": "decrypt_exchange",
+      "queue": "decrypt_queue"
+    },
+    {
+      "exchange": "auth_exchange",
+      "queue": "auth_queue"
+    },
+    {
+      "exchange": "dup_exchange",
+      "queue": "dup_queue"
+    },
+    {
+      "exchange": "consume_exchange",
+      "queue": "consum_queue"
+    }
+  ],
+  "publish":
+  {
+    "publisher": {
+      "exchange": "decrypt_exchange"
+    },
+    "decryptor": {
+      "exchange": "auth_exchange"
+    },
+    "authenticator": {
+      "exchange": "dup_exchange"
+    },
+    "duplicator": {
+      "exchange": "consume_exchange"
+    }
+  },
+  "consume": {
+    "decryptor": {
+      "listen": "decrypt_queue"
+    },
+    "authenticator": {
+      "listen": "auth_queue"
+    },
+    "duplicator": {
+      "listen": "dup_queue"
+    },
+    "consumer": {
+      "listen": "consum_queue"
+    }
+  }
+}
