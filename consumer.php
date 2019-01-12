@@ -19,7 +19,9 @@ $callback = function ($msg) {
     echo ' Received Finale Message: ', $msg->body, "\n";
 };
 
-$rabbitQmWrapper->basicConsume($queue, '', false, true, false, false, $callback);
+$ack = $json['consume']['consumer']['ack'];
+
+$rabbitQmWrapper->basicConsume($queue, '', false, $ack, false, false, $callback);
 
 while (count($channel->callbacks)) {
     $channel->wait();

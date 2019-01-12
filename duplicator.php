@@ -26,8 +26,9 @@ $callback = function ($req) {
 $jsonString = file_get_contents(__DIR__.'/config.json');
 $json = json_decode($jsonString, true);
 $queue = $json['consume']['duplicator']['listen'];
+$ack = $json['consume']['duplicator']['ack'];
 
-$rabbitQmWrapper->basicConsume($queue, '', false, true, false, false, $callback);
+$rabbitQmWrapper->basicConsume($queue, '', false, $ack, false, false, $callback);
 
 while (count($channel->callbacks)) {
     $channel->wait();

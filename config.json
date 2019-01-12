@@ -35,16 +35,20 @@
   },
   "consume": {
     "decryptor": {
-      "listen": "decrypt_queue"
+      "listen": "decrypt_queue",
+      "ack": false
     },
     "authenticator": {
-      "listen": "auth_queue"
+      "listen": "auth_queue",
+      "ack": false
     },
     "duplicator": {
-      "listen": "dup_queue"
+      "listen": "dup_queue",
+      "ack": false
     },
     "consumer": {
-      "listen": "consum_queue"
+      "listen": "consum_queue",
+      "ack": false
     }
   }
 }
