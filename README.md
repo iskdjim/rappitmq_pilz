@@ -12,7 +12,7 @@ now all jobs are running and you can publish messages.
 execute publisher.php
 
 The current setup allows to spawn as much duplicator, authenticator and decryptor as needed.
-If you want to use message acknowledgment you shoult adjust the config.json file before spawing more workers.
+If you want to use message acknowledgment you should adjust the config.json file before spawing more workers.
 
 
 ###Functionality filter/pipe task:
