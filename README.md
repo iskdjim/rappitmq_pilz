@@ -16,10 +16,12 @@ If you want to use message acknowledgment you should adjust the config.json file
 
 
 ###Functionality filter/pipe task:
+
 A Publisher sends message to a Consumer. Before the consumer receives the message, there are 3 workers in between. A Duplicator, Authenticator and a Duplicator.
 Each of this worker is receiving the message and sends it to the next worker.
 
 For each step of the filter/pipe pattern i have defined a single exchange and queue.
+
 
 Publisher sends to DecrypterExchange
 Decryptor listen to DecryptoerQueue
@@ -29,6 +31,7 @@ Authenticator sends to DuplicatorExchange
 Duplicator listens to DuplicatorQueue
 Duplicator sends to ConsumerExchange
 Consumer listen to COnsumerQueue
+
 
 ####Questions 
 
